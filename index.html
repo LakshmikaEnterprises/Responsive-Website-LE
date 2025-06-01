@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Responsive Parallax Site</title>
+    <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+    <header>
+        <div class="logo">MySite</div>
+        <nav>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </header>
+
+    <section id="home" class="parallax home-section">
+        <h1>Welcome to MySite</h1>
+    </section>
+
+    <section id="about" class="content-section">
+        <h2>About Us</h2>
+        <p>This is a sample about section with hover effects on links.</p>
+        <a href="#services" class="hover-link">Our Services</a>
+    </section>
+
+    <section id="services" class="content-section">
+        <h2>Services</h2>
+        <div class="services-grid">
+            <div class="service-card hover-effect">Service 1</div>
+            <div class="service-card hover-effect">Service 2</div>
+            <div class="service-card hover-effect">Service 3</div>
+        </div>
+    </section>
+
+    <section id="contact" class="content-section">
+        <h2>Contact Us</h2>
+        <p>Phone: <a href="tel:+917464889991">+91 7464889991</a></p>
+        <p>Email: <a href="mailto:varunikang@gmail.com">varunikang@gmail.com</a></p>
+    </section>
+
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navLinks = document.querySelector('.nav-links');
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('nav-active');
+            hamburger.classList.toggle('toggle');
+        });
+
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const parallax = document.querySelector('.parallax');
+            let scrollPosition = window.pageYOffset;
+            parallax.style.backgroundPositionY = scrollPosition * 0.5 + 'px';
+        });
+    </script>
+</body>
+</html>
